@@ -14,7 +14,6 @@ class TaskList extends React.Component{
     
 
     render(){
-
    		return(
    			<div className="list" >
    				<h2>Tasks</h2>
@@ -22,7 +21,7 @@ class TaskList extends React.Component{
    					return (
 	   					<li key={index}> 
 	   						{task.task}
-	   						<button onClick={this.removeTask(task)}> Remove Task </button>
+	   						<button onClick={this.removeTask(task)} >Remove Task</button>
 
 	   					</li>
    						

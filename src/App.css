@@ -22,6 +22,12 @@
     background-color: lightyellow;   
 }
 
-li{
+li {
     text-align: left;
+    height: 30px;
+}
+
+li button {
+    float: right;
+
 }
