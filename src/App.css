@@ -1,0 +1,27 @@
+.App {
+    text-align: center;
+}
+
+.header {
+    background-color: lightgreen;
+    height: 10%;
+    padding: 5%;
+}
+
+.body {
+    background-color: lightblue;
+    height: 90%;
+    padding: 5%; 
+}
+
+.taskInput {
+    background-color: lightpink;
+}
+
+.list {
+    background-color: lightyellow;   
+}
+
+li{
+    text-align: left;
+}
