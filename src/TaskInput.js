@@ -27,7 +27,7 @@ class TaskInput extends React.Component {
             <div className="taskInput">
                 <h2>Add Task</h2>
                 <form onSubmit={this.addTask}>
-                    <input type="text" ref="newTask" autofocus/>
+                    <input type="text" ref="newTask" autoFocus/>
                     <input type="submit" />
                 </form>
             </div>

@@ -3,22 +3,63 @@ import TaskInput from './TaskInput';
 import TaskList from './TaskList';
 
 class AppBody extends React.Component{
+
 	constructor(props) {
 		super(props);
  	 	this.state = {
  	 		list: []
- 	 		// list_item: {'11111111': 'task1'},
- 	 		// list_ref: ['11111111']
 	 	 } 
 	 	 this.addTask = this.addTask.bind(this);
 	 	 this.removeTask = this.removeTask.bind(this);
+	 	 this.database = window.firebase.database();
+	 	 this.loadTasks = this.loadTasks.bind(this);
+
+	 	 this.fetchTasks();
+
 	}
 
+
+	guid() {
+	  function s4() {
+	    return Math.floor((1 + Math.random()) * 0x10000)
+	      .toString(16)
+	      .substring(1);
+	  }
+	  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+	}
+
+
+	fetchTasks() {
+		this.database.ref('/tasks/').on('value', this.loadTasks );
+	}
+
+	loadTasks(snapshot) {
+		let newList =  this.toArrayFromObject( snapshot.val() )
+		this.state.list = newList;
+	 	this.setState({list: this.state.list });
+		
+	}
+
+	toArrayFromObject(obj) {
+		var arrayObj = [];
+		Object.keys(obj).map( (taskKey)=>{
+			arrayObj.push( obj[taskKey] )
+		})
+		return arrayObj;
+	}
+
+
     addTask(taskName) { 
-    	// let c = Date.now();
-        this.state.list.push({'task': taskName});
+    	let uuid = this.guid();
+    	let task = {
+    		name: taskName,
+    		uuid: uuid
+    	}
+    	
+        this.state.list.push( task );
         this.setState({list: this.state.list});
-        // c+=1;       
+        this.database.ref( 'tasks/' + task.uuid ).set(task);
+        
 
     }
 
@@ -27,7 +68,7 @@ class AppBody extends React.Component{
     		if (task !== taskToRemove.task) {
     			return task;
     		} else {
-    			console.warn(`removed task: ${task.task}`);
+    			this.database.ref( 'tasks/' + task.uuid ).remove()
     		}
     	});
     	this.setState({list: newList});

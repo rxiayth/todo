@@ -4,22 +4,24 @@ class TaskList extends React.Component{
  	 	super(props);
     this.removeTask = this.removeTask.bind(this);
 
+
  	}
 
-  removeTask(task){
-    return ()=>{ this.props.removeTask({task}) }
-  }
+    removeTask(task){
+        return ()=>{ this.props.removeTask({task}) 
+    }
 
-    
+}
+
 
     render(){
    		return(
    			<div className="list" >
    				<h2>Tasks</h2>
-   				{this.props.list.map( (task,index) => {
+   				{this.props.list.map( (task) => {
    					return (
-	   					<li key={index}> 
-	   						{task.task}
+	   					<li key={task.uuid}> 
+	   						{task.name}
 	   						<button onClick={this.removeTask(task)} >Remove Task</button>
 
 	   					</li>
