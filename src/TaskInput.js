@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 
-// auto foucs
-
 class TaskInput extends React.Component {  
-
 
     constructor(props) {
         super(props);
-        this.addTask = this.addTask.bind(this);
-        
+        this.addTask = this.addTask.bind(this);        
     }
     
-    componentDidMount(){
+    componentDidMount() {
        this.refs.newTask.focus(); 
     }
 

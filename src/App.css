@@ -3,23 +3,24 @@
 }
 
 .header {
-    background-color: lightgreen;
-    height: 10%;
-    padding: 5%;
+    background-color: rgb(143, 188, 143);
+    color: white;
+    height: 2%;
+    padding: 2%;
 }
 
 .body {
-    background-color: lightblue;
-    height: 90%;
+    background-color: rgb(223, 236, 223);
+    height: 98%;
     padding: 5%; 
 }
 
 .taskInput {
-    background-color: lightpink;
+    background-color: rgb(155, 188, 143);
 }
 
 .list {
-    background-color: lightyellow;   
+    background-color: rgb(143, 188, 188);   
 }
 
 li {
