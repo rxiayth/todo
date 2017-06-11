@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import TaskInput from './TaskInput';
 import TaskList from './TaskList';
 
@@ -18,9 +18,7 @@ class AppBody extends React.Component{
     	// let c = Date.now();
         this.state.list.push({'task': taskName});
         this.setState({list: this.state.list});
-        // c+=1; 
-
-        
+        // c+=1;       
 
     }
 
@@ -34,8 +32,6 @@ class AppBody extends React.Component{
     	});
     	this.setState({list: newList});
     }
-
-
 
 	render() { 
 		return (
